@@ -1,4 +1,4 @@
-#HamsterBot
+# HamsterBot
 
 一个简单的，基于python编写的异步小型机器人框架
 目前支持
@@ -6,12 +6,12 @@
 [微信(wechatbot-webhook)](https://github.com/danni-cool/wechatbot-webhook)，
 且可自定义功能
 
-##使用方法
+## 使用方法
 
 在config.json文件里面更改你的消息上报地址
 然后启动start.py
 
-##插件编写方法
+## 插件编写方法
 
 在func文件夹里仿照help.py的格式,使用`bot`装饰器和`user`类编写.py文件放在func文件夹
 (当然,这个案例文件不存在,你可以造一个)
