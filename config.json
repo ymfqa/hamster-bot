@@ -2,6 +2,6 @@
 	"listen_url": "127.0.0.1:10100",
 	"send_url": {
 		"QQ": "http://127.0.0.1:10111",
-		"WeChat": "http://127.0.0.1:3001/webhook/msg/v2?token=l2kP8X8fDwZK"
+		"WeChat": "http://127.0.0.1:3001/webhook/msg/v2?token="
 	}
 }
