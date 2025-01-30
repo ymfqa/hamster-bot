@@ -32,5 +32,5 @@ help_info = """帮助信息
 async def example(user: User, message: str) -> None:
     await user.send_message("这只是一个案例,啥也不是")
 ```
-保存,运行,使用qq给你的bot发个/example
+保存,运行,使用qq给你的bot发个`/example`
 bot会回复你`user.send_message()`里面的话
