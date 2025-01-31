@@ -1,5 +1,5 @@
 from .User import User
-from httpx import AsyncClient
+from httpx import AsyncClient, Timeout
 
 
 class QUser(User):
@@ -15,8 +15,18 @@ class QUser(User):
                     url=self.base_url + "/send_group_msg",
                     json={
                         "group_id": self.gid,
-                        "message": [{"type": message_type, "data": {"text": message}}],
+                        "message": [
+                            {
+                                "type": message_type,
+                                "data": {
+                                    (
+                                        "text" if message_type == "text" else "file"
+                                    ): message
+                                },
+                            }
+                        ],
                     },
+                    timeout=Timeout(connect=10, read=30, write=None, pool=None),
                 )
             # 发送私聊消息
             else:
@@ -24,8 +34,18 @@ class QUser(User):
                     url=self.base_url + "/send_private_msg",
                     json={
                         "user_id": self.pid,
-                        "message": [{"type": message_type, "data": {"text": message}}],
+                        "message": [
+                            {
+                                "type": message_type,
+                                "data": {
+                                    (
+                                        "text" if message_type == "text" else "file"
+                                    ): message
+                                },
+                            }
+                        ],
                     },
+                    timeout=Timeout(connect=10, read=30, write=None, pool=None),
                 )
 
     # 发送文本消息
